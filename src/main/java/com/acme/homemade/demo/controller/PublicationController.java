@@ -63,7 +63,7 @@ public class PublicationController {
     }
 
 
-    @DeleteMapping("/publications/{publicationId}/users/{userId")
+    @DeleteMapping("/publications/{publicationId}/users/{userId}")
     public ResponseEntity<?> deletePublication(@PathVariable(value = "publicationId") Long publicationId,
                                             @PathVariable(value = "userId") Long userId){
         return publicationService.deletePublication(userId, publicationId);
