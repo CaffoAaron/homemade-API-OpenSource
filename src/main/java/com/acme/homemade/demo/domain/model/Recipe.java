@@ -3,7 +3,7 @@ package com.acme.homemade.demo.domain.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "recipes")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
