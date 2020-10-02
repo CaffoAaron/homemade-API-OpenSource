@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -37,6 +38,10 @@ public abstract class User {
     private String profilePicture;
 
     private boolean connected;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            mappedBy = "users")
+    private List<Chat> chats;
 
     public Long getId() {
         return id;
