@@ -43,7 +43,7 @@ public class UserNoChefController {
     }
 
     @Operation(summary = "Create userNoChefs", description = "Create a new userNoChefs", tags = {"userNoChefs"})
-    @PostMapping("/userNoChefs")
+    @PutMapping("/userNoChefs")
     public UserNoChefResource createUserNoChef(@Valid @RequestBody SaveUserNoChefResource resource){
         return convertToResource(userNoChefService.createUserNoChef(convertToEntity(resource)));
     }
