@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "recipes")
@@ -30,5 +31,9 @@ public class Recipe {
     @JoinColumn(name = "userChef_id", nullable = false)
     @JsonIgnore
     private UserChef userChef;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            mappedBy = "recipes")
+    private List<Menu> menus;
 
 }

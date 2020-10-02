@@ -14,9 +14,9 @@ public class UserChef extends User {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "UserChef_UserNoChefs",
-            joinColumns = {@JoinColumn(name = "UserChef_id")},
-            inverseJoinColumns = {@JoinColumn(name = "UserNoChef_id")})
+    @JoinTable(name = "userChef_userNoChefs",
+            joinColumns = {@JoinColumn(name = "userChef_id")},
+            inverseJoinColumns = {@JoinColumn(name = "userNoChef_id")})
     private List<UserNoChef> userNoChefs;
 
 
