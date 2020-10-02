@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 
 public interface PublicationService {
 
+    Publication getPublicationById (Long publicationId);
+
     Page<Publication> getAllPublicationByUserId(Long userId, Pageable pageable);
 
     Page<Publication> getAllPublication (Pageable pageable);
