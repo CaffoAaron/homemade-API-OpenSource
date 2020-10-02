@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -43,9 +44,10 @@ public class UserNoChefController {
     }
 
     @Operation(summary = "Create userNoChefs", description = "Create a new userNoChefs", tags = {"userNoChefs"})
-    @PutMapping("/userNoChefs")
+    @PostMapping("/userNoChefs")
     public UserNoChefResource createUserNoChef(@Valid @RequestBody SaveUserNoChefResource resource){
-        return convertToResource(userNoChefService.createUserNoChef(convertToEntity(resource)));
+        UserNoChef userNoChef = convertToEntity(resource);
+        return convertToResource(userNoChefService.createUserNoChef(userNoChef));
     }
 
     @Operation(summary = "Update userNoChefs", description = "Update userNoChefs with given Id", tags = {"userNoChefs"})
@@ -53,6 +55,12 @@ public class UserNoChefController {
     public UserNoChefResource updateUserNoChefResource(@PathVariable(name = "id") Long userNoChefId,
                                                        @Valid @RequestBody SaveUserNoChefResource resource){
         return convertToResource(userNoChefService.updateUserNoChef(userNoChefId,convertToEntity(resource)));
+    }
+
+    @Operation(summary = "Delete UserNoChef", description = "Delete UserNoChef with given Id", tags = {"userNoChefs"})
+    @DeleteMapping("/posts/{userNoChefId}")
+    public ResponseEntity<?> deleteUserChef (@PathVariable Long userNoChefId){
+        return userNoChefService.deleteUserNoChef(userNoChefId);
     }
 
     private UserNoChef convertToEntity(SaveUserNoChefResource resource) {

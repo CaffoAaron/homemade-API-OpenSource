@@ -50,14 +50,14 @@ public class UserChefController {
     }
 
     @Operation(summary = "Create UserChef", description = "Create a new UserChef", tags = {"UserChefs"})
-    @PutMapping("/userChefs")
+    @PostMapping("/userChefs")
     public UserChefResource createUserChef(@Valid @RequestBody SaveUserChefResource resource) {
         UserChef userChef = convertToEntity(resource);
         return convertToResource(userChefService.createUserChef(userChef));
     }
 
     @Operation(summary = "Update UserChef", description = "Update UserChef for given Id", tags = {"UserChefs"})
-    @DeleteMapping("/userChefs/{userChefId}")
+    @PutMapping("/userChefs/{userChefId}")
     public UserChefResource updateUserChef(@PathVariable Long userChefId, @RequestBody SaveUserChefResource resource) {
         UserChef userChef = convertToEntity(resource);
         return convertToResource(userChefService.updateUserChef(userChefId, userChef));
@@ -70,10 +70,12 @@ public class UserChefController {
     }
 
     public UserChef convertToEntity(SaveUserChefResource resource) {
+
         return mapper.map(resource, UserChef.class);
     }
 
     public UserChefResource convertToResource(UserChef entity) {
+
         return mapper.map(entity, UserChefResource.class);
     }
 

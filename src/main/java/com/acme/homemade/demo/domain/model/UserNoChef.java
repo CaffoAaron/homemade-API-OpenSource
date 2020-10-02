@@ -12,7 +12,7 @@ import java.util.List;
 public class UserNoChef extends User {
 
     @NotNull
-    private Boolean membership;
+    private boolean membership;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             mappedBy = "userNoChefs")
