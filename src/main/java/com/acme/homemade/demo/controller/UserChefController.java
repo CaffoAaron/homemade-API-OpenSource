@@ -64,7 +64,7 @@ public class UserChefController {
     }
 
     @Operation(summary = "Delete UserChef", description = "Delete UserChef with given Id", tags = {"UserChefs"})
-    @DeleteMapping("/posts/{userChefId}")
+    @DeleteMapping("/userChefs/{userChefId}")
     public ResponseEntity<?> deleteUserChef (@PathVariable Long userChefId){
         return userChefService.deleteUserChef(userChefId);
     }
