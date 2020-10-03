@@ -11,8 +11,8 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
     Page<Ingredient> findById (Long Id, Pageable pageable);
 
-    Page<Ingredient> findByName (String name, Pageable pageable);
+    Page<Ingredient> findByRecipeId (Long recipeId, Pageable pageable);
 
-    Optional<Ingredient> findByIdAndRecipeId (Long Id, Long RecipeId);
+    Optional<Ingredient> findByIdAndRecipeId (Long Id, Long recipeId);
 
 }
