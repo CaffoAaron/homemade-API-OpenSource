@@ -9,10 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
  public interface StepRepository extends JpaRepository<Step, Long>{
 
-       Page<Step> findById (Long Id, Pageable pageable);
-
-       Page<Step> findByRecipe_Id (Long recipeId, Pageable pageable);
-
-
-       Optional<Step> findByIdAndRecipe_Id (Long Id, Long recipe_Id);
+     Page<Step> findByRecipeId(Long recipeId, Pageable pageable);
+     Optional<Step> findByIdAndRecipeId(Long Id, Long recipeId);
 }
