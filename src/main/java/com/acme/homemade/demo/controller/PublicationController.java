@@ -5,6 +5,7 @@ import com.acme.homemade.demo.domain.reposiroty.CommentRepository;
 import com.acme.homemade.demo.domain.service.PublicationService;
 import com.acme.homemade.demo.resource.PublicationResource;
 import com.acme.homemade.demo.resource.SavePublicationResource;
+import io.swagger.v3.oas.annotations.Operation;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,7 @@ public class PublicationController {
     @Autowired
     private PublicationService publicationService;
 
+    @Operation(summary = "Get publications", description = "Get All UserChef by userId", tags = {"publications"})
     @GetMapping("/publications/users/{userId}")
     public Page<PublicationResource> getAllPublicationByUserId(@PathVariable Long userId, Pageable pageable){
         Page<Publication> publicationPage = publicationService.getAllPublicationByUserId(userId, pageable);
@@ -38,6 +40,7 @@ public class PublicationController {
         return new PageImpl<>(resource, pageable, resource.size());
     }
 
+    @Operation(summary = "Get publications", description = "Get All UserChef", tags = {"publications"})
     @GetMapping("/publications")
     public Page<PublicationResource> getAllPublications (Pageable pageable){
         Page<Publication> publicationPage = publicationService.getAllPublication(pageable);
@@ -50,11 +53,13 @@ public class PublicationController {
     }
 
 
+    @Operation(summary = "Create publications", description = "Create a new publications", tags = {"publications"})
     @PostMapping("/publications/users/{userId}")
     public PublicationResource createPublication(@PathVariable Long userId, @Valid @RequestBody SavePublicationResource resource){
         return convertToResource(publicationService.createPublication(userId, convertToEntity(resource)));
     }
 
+    @Operation(summary = "Update publications", description = "Update publications for given Id", tags = {"publications"})
     @PutMapping("/publications/{publicationId}/users/{userId}")
     public PublicationResource updatePublication(@PathVariable(value = "publicationId") Long publicationId,
                                                  @PathVariable(value = "userId") Long userId,
@@ -62,7 +67,7 @@ public class PublicationController {
         return convertToResource(publicationService.updatePublication(userId, publicationId, convertToEntity(resource)));
     }
 
-
+    @Operation(summary = "Delete publications", description = "Delete publications with given Id", tags = {"publications"})
     @DeleteMapping("/publications/{publicationId}/users/{userId}")
     public ResponseEntity<?> deletePublication(@PathVariable(value = "publicationId") Long publicationId,
                                             @PathVariable(value = "userId") Long userId){
