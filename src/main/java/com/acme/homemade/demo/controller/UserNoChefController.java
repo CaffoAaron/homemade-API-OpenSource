@@ -58,9 +58,9 @@ public class UserNoChefController {
     }
 
     @Operation(summary = "Delete UserNoChef", description = "Delete UserNoChef with given Id", tags = {"userNoChefs"})
-    @DeleteMapping("/posts/{userNoChefId}")
-    public ResponseEntity<?> deleteUserChef (@PathVariable Long userNoChefId){
-        return userNoChefService.deleteUserNoChef(userNoChefId);
+    @DeleteMapping("/userNoChefs/{id}")
+    public ResponseEntity<?> deleteUserChef (@PathVariable(name = "id")  Long id){
+        return userNoChefService.deleteUserNoChef(id);
     }
 
     private UserNoChef convertToEntity(SaveUserNoChefResource resource) {
