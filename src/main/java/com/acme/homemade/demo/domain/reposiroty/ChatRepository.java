@@ -1,8 +1,7 @@
 package com.acme.homemade.demo.domain.reposiroty;
 
 import com.acme.homemade.demo.domain.model.Chat;
-import com.acme.homemade.demo.domain.model.Comment;
-import com.acme.homemade.demo.domain.model.Publication;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +14,7 @@ public interface ChatRepository extends JpaRepository<Chat, Long>{
 
     Page<Chat> findByUsersId (Long UsersId, Pageable pageable);
 
-    Optional<Chat> findByIdAndUsersId (Long Id, Long UserId);
+    Optional<Chat> findByIdAndUsersId (Long Id, Long usersId);
 
 
 }
