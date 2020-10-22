@@ -24,7 +24,6 @@ public class Recipe {
     @Lob
     private String content;
 
-    @NotNull
     private String picture;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

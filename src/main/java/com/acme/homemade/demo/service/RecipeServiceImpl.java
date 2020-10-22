@@ -1,7 +1,6 @@
 package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Recipe;
-import com.acme.homemade.demo.domain.reposiroty.PublicationRepository;
 import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
 import com.acme.homemade.demo.domain.reposiroty.UserChefRepository;
 import com.acme.homemade.demo.domain.service.RecipeService;
@@ -31,20 +30,22 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
+    public Recipe getRecipeByTitle(String title) {
+        return recipeRepository.findByTitle(title)
+                .orElseThrow(() -> new ResourceNotFoundException("Post", "Title", title));
+    }
+
+    @Override
     public Page<Recipe> getAllRecipe(Pageable pageable) {
         return recipeRepository.findAll(pageable);
     }
 
     @Override
-    public Recipe getRecipeByIdAndUserChefId(Long userChefId, Long recipeId) {
-        return recipeRepository.findByIdAndUserChefId(recipeId,userChefId)
-                .orElseThrow(()->new ResourceNotFoundException("Comment not found with Id"+recipeId+"and PostId"+userChefId));
-    }
-
-    @Override
     public Recipe createRecipe(Long userChefId, Recipe recipe) {
-        return chefRepository.findById(userChefId).map(userChef -> {recipe.setUserChef(userChef);
-        return recipeRepository.save(recipe);}).orElseThrow(()->new ResourceNotFoundException("UserChefId","Id",userChefId));
+        return chefRepository.findById(userChefId).map(userChef -> {
+            recipe.setUserChef(userChef);
+            return recipeRepository.save(recipe);
+        }).orElseThrow(()->new ResourceNotFoundException("UserChefId","Id",userChefId));
     }
 
     @Override

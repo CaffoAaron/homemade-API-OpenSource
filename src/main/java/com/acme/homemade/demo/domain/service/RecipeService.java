@@ -11,9 +11,9 @@ public interface RecipeService {
 
     Page<Recipe> getAllRecipeByUserChefId(Long userChefId, Pageable pageable);
 
-    Page<Recipe> getAllRecipe(Pageable pageable);
+    Recipe getRecipeByTitle(String title);
 
-    Recipe getRecipeByIdAndUserChefId (Long userChefId, Long recipeId);
+    Page<Recipe> getAllRecipe(Pageable pageable);
 
     Recipe createRecipe(Long userChefId, Recipe recipe);
 
