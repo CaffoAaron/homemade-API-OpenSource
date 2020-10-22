@@ -32,7 +32,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public Recipe getRecipeByTitle(String title) {
         return recipeRepository.findByTitle(title)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "Title", title));
+                .orElseThrow(() -> new ResourceNotFoundException("Recipe", "Title", title));
     }
 
     @Override
