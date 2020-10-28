@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface MessageRepository {
+public interface MessageRepository extends JpaRepository<Message, Long> {
+    Page<Message> findByUserId (Long userId, Pageable pageable);
+    Page<Message> findByChatId (Long chatId, Pageable pageable);
 
 }
