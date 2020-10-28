@@ -14,8 +14,8 @@ public interface MessageService {
 
     Page<Message> getAllMessageByChatId (Long chatId, Pageable pageable);
 
-    Message createMessage (Long userId, Message message);
+    Message createMessage (Long userId, Long ChatId ,Message message);
 
-    ResponseEntity<?> deleteMessage (Long userId, Long messageId);
+    ResponseEntity<?> deleteMessage (Long userId, Long messageId, Long chatId);
 
 }

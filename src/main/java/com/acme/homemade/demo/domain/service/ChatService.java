@@ -8,14 +8,14 @@ import org.springframework.http.ResponseEntity;
 
 public interface ChatService {
 
-    Chat getChatId(Long chatId);
+    Chat getChatId (Long chatId);
 
-    Page<Chat> getAllChatByUserId(Long userId, Pageable pageable);
+    Chat createChat (Long chatId, Long userId, Chat chat);
 
-    Chat createChat(Long chatId, Long userId, Chat chat);
+    ResponseEntity<?> deleteChat (Long chatId, Long userId);
 
-    Chat updateChat(Long chatId, Long userId, Chat chat);
+    Chat assignChatUser (Long ChatId, Long userId);
 
-    ResponseEntity<?> deleteChat(Long chatId, Long userId, Chat chat);
+    Chat unassignChatUser (Long ChatId, Long userId);
 
 }
