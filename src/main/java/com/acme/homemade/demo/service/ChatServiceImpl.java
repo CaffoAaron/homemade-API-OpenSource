@@ -1,10 +1,12 @@
 package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Chat;
+import com.acme.homemade.demo.domain.model.User;
 import com.acme.homemade.demo.domain.reposiroty.ChatRepository;
 import com.acme.homemade.demo.domain.reposiroty.MessageRepository;
 import com.acme.homemade.demo.domain.reposiroty.UserRepository;
 import com.acme.homemade.demo.domain.service.ChatService;
+import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,9 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public Chat getChatId(Long chatId) {
-        return null;
+        return chatRepository.findById(chatId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Chat", "Id", chatId));
     }
 
     @Override
@@ -29,17 +33,32 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public ResponseEntity<?> deleteChat(Long chatId, Long userId) {
-        return null;
+    public ResponseEntity<?> deleteChat(Long chatId) {
+        Chat chat = chatRepository.findById(chatId)
+                .orElseThrow(() -> new ResourceNotFoundException("Chat", "Id", chatId));
+        chatRepository.delete(chat);
+        return ResponseEntity.ok().build();
     }
 
     @Override
-    public Chat assignChatUser(Long ChatId, Long userId) {
-        return null;
+    public Chat assignChatUser(Long chatId, Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "User", "Id", userId));
+        return chatRepository.findById(chatId).map(
+                chat -> chatRepository.save(chat.tagWith(user)))
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Chat", "Id", chatId));
     }
 
     @Override
-    public Chat unassignChatUser(Long ChatId, Long userId) {
-        return null;
+    public Chat unassignChatUser(Long chatId, Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "User", "Id", userId));
+        return chatRepository.findById(chatId).map(
+                chat -> chatRepository.save(chat.unTagWith(user)))
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Chat", "Id", chatId));
     }
 }

@@ -12,7 +12,7 @@ public interface ChatService {
 
     Chat createChat (Long chatId, Long userId, Chat chat);
 
-    ResponseEntity<?> deleteChat (Long chatId, Long userId);
+    ResponseEntity<?> deleteChat (Long chatId);
 
     Chat assignChatUser (Long ChatId, Long userId);
 

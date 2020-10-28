@@ -17,6 +17,21 @@ public class Chat {
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private List<User> users;
 
+    public boolean isTaggedWith(User user) {
+        return this.getUsers().contains(user);
+    }
+
+    public Chat tagWith(User user) {
+        if (!this.isTaggedWith(user))
+            this.getUsers().add(user);
+        return this;
+    }
+
+    public Chat unTagWith(User user) {
+        if (this.isTaggedWith(user))
+            this.getUsers().remove(user);
+        return this;
+    }
 
     public Long getId() {
         return id;
