@@ -1,11 +1,9 @@
 package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Message;
-import com.acme.homemade.demo.domain.reposiroty.MessageRepository;
-import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserChefRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.reposiroty.*;
 import com.acme.homemade.demo.domain.service.MessageService;
+import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,39 +17,40 @@ public class MenuServiceImpl implements MessageService {
     private MessageRepository messageRepository;
 
     @Autowired
-    private UserChefRepository chefRepository;
-
-    @Autowired
-    private UserNoChefRepository userNoChefRepository;
+    private UserRepository userRepository;
 
 
     @Override
     public Message getMessageById(Long messageId) {
-        return null;
+        return messageRepository.findById(messageId).orElseThrow(()->new ResourceNotFoundException("Message","Id",messageId));
     }
 
     @Override
     public Page<Message> getAllMessageByUserId(Long userId, Pageable pageable) {
-        return null;
+        return messageRepository.findByUserId(userId,pageable);
     }
 
     @Override
     public Page<Message> getAllMessageByChatId(Long chatId, Pageable pageable) {
-        return null;
+        return messageRepository.findByUserId(chatId,pageable);
     }
 
     @Override
     public Message createMessage(Long userId, Message message) {
-        return null;
+        return userRepository.findById(userId).map(user -> {
+            message.setUser(user);
+            return messageRepository.save(message);
+        }).orElseThrow(()->new ResourceNotFoundException("User","Id",userId));
     }
 
-    @Override
-    public Message updateMessage(Long userId, Long messageId, Message message) {
-        return null;
-    }
 
     @Override
     public ResponseEntity<?> deleteMessage(Long userId, Long messageId) {
-        return null;
+        if(!userRepository.existsById(userId))
+            throw new ResourceNotFoundException("User","Id", userId);
+        return messageRepository.findById(messageId).map(message -> {
+            messageRepository.delete(message);
+            return ResponseEntity.ok().build();
+        }).orElseThrow(()->new ResourceNotFoundException("Message","Id",userId));
     }
 }

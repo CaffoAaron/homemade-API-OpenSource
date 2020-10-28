@@ -16,8 +16,6 @@ public interface MessageService {
 
     Message createMessage (Long userId, Message message);
 
-    Message updateMessage (Long userId, Long messageId ,Message message);
-
     ResponseEntity<?> deleteMessage (Long userId, Long messageId);
 
 }
