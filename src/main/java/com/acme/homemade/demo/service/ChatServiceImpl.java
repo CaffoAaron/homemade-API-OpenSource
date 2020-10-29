@@ -3,7 +3,6 @@ package com.acme.homemade.demo.service;
 import com.acme.homemade.demo.domain.model.Chat;
 import com.acme.homemade.demo.domain.model.User;
 import com.acme.homemade.demo.domain.reposiroty.ChatRepository;
-import com.acme.homemade.demo.domain.reposiroty.MessageRepository;
 import com.acme.homemade.demo.domain.reposiroty.UserRepository;
 import com.acme.homemade.demo.domain.service.ChatService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
@@ -28,8 +27,8 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public Chat createChat(Long chatId, Long userId, Chat chat) {
-        return null;
+    public Chat createChat( Chat chat) {
+        return chatRepository.save(chat);
     }
 
     @Override
