@@ -1,13 +1,14 @@
 package com.acme.homemade.demo.service;
 
-
 import com.acme.homemade.demo.domain.model.Comment;
+import com.acme.homemade.demo.domain.model.Publication;
 import com.acme.homemade.demo.domain.model.UserNoChef;
 import com.acme.homemade.demo.domain.reposiroty.CommentRepository;
 import com.acme.homemade.demo.domain.reposiroty.PublicationRepository;
 import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.CommentService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -39,11 +40,12 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment createComment(Long publicationId,Long userId, Comment comment) {
-        UserNoChef userNoChef = userNoChefRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        if(!publicationRepository.existsById(publicationId))
+            throw new ResourceNotFoundException("Publication", "Id", publicationId);
+        if(!userNoChefRepository.existsById(userId))
+            throw new ResourceNotFoundException("User", "Id", userId);
         return publicationRepository.findById(publicationId).map(publication -> {
             comment.setPublication(publication);
-            comment.setUser(userNoChef);
             return commentRepository.save(comment);
         }).orElseThrow(()->new ResourceNotFoundException("Publication", "Id", publicationId));
     }
