@@ -15,7 +15,7 @@ public class Step {
     @NotNull
     private  String text;
 
-    private  String image;
+    private  String imagen;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "recipe_id", nullable = false)
@@ -41,12 +41,12 @@ public class Step {
         return this;
     }
 
-    public String getImage() {
-        return image;
+    public String getImagen() {
+        return imagen;
     }
 
-    public Step setImage(String image) {
-        this.image = image;
+    public Step setImagen(String imagen) {
+        this.imagen = imagen;
         return this;
     }
 
