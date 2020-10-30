@@ -14,16 +14,16 @@ public class Payment {
     private Long id;
 
     @NotNull
-    private Long cardNumber;
+    private  Long cardNumber;
 
     @NotNull
     private String cardName;
 
     @NotNull
-    private String paymentDetail;
+    private  String paymentDetail;
 
     @NotNull
-    private Date dateTime;
+    private Date  dateTime;
 
     @NotNull
     private Float total;
