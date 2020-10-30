@@ -31,10 +31,6 @@ public class Comment {
     @JsonIgnore
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "recipe_id", nullable = false)
-    @JsonIgnore
-    private Recipe recipe;
 
     public Long getId() {
         return id;
@@ -90,12 +86,4 @@ public class Comment {
         return this;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public Comment setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-        return this;
-    }
 }
