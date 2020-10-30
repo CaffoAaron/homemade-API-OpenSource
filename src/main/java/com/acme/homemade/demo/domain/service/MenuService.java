@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface MenuService {
     Menu getMenuById(Long menuId);
-    Page<Menu> getAllMenuByRecipeId (Long recipeId, Pageable pageable);
     Page<Menu> getAllMenu (Pageable pageable);
     Page<Menu> getAllMenuByUserId(Long userId, Pageable pageable);
     Menu assignMenuRecipe(Long menuId, Long recipeId);

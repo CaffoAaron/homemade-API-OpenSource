@@ -51,7 +51,7 @@ public class RecipeController {
 
     @Operation(summary = "Get Recipe By Id", description = "Get Recipes for given Id", tags = {"Recipes"})
     @GetMapping("/recipes/{id}")
-    public RecipeResource getTagById(
+    public RecipeResource getRecipeById(
             @PathVariable(name = "id") Long recipeId) {
         return convertToResource(recipeService.getRecipeById(recipeId));
     }

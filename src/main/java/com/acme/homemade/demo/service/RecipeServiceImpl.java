@@ -55,7 +55,7 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeRepository.findById(recipeId).map(recipe1 -> {
             recipe1.setContent(recipe.getContent());
             recipe1.setDescription(recipe.getDescription());
-            return recipeRepository.save(recipe);
+            return recipeRepository.save(recipe1);
         }).orElseThrow(()->new ResourceNotFoundException("Recipe", "Id",recipeId));
     }
 
