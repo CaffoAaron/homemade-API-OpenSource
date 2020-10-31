@@ -23,6 +23,11 @@ public class PublicationServiceImpl implements PublicationService {
     private UserNoChefRepository userNoChefRepository;
 
     @Override
+    public Publication getPublicationById(Long publicationId) {
+        return publicationRepository.findById(publicationId).orElseThrow(() -> new ResourceNotFoundException("Publication", "Id", publicationId));
+    }
+
+    @Override
     public Page<Publication> getAllPublicationByUserId(Long userId, Pageable pageable) {
         return publicationRepository.findByUserId(userId, pageable);
     }

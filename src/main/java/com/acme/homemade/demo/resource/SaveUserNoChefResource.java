@@ -31,6 +31,9 @@ public class SaveUserNoChefResource {
 
     private boolean connected;
 
+    @NotNull
+    private  boolean membership;
+
     public String getName() {
         return name;
     }
@@ -100,6 +103,15 @@ public class SaveUserNoChefResource {
 
     public SaveUserNoChefResource setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+        return this;
+    }
+
+    public boolean isMembership() {
+        return membership;
+    }
+
+    public SaveUserNoChefResource setMembership(boolean membership) {
+        this.membership = membership;
         return this;
     }
 }
