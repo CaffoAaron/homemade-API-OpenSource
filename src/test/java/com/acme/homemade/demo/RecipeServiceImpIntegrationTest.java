@@ -8,10 +8,12 @@ import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import com.acme.homemade.demo.service.RecipeServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
@@ -19,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(SpringExtension.class)
 public class RecipeServiceImpIntegrationTest {
 
     @MockBean
@@ -39,8 +42,8 @@ public class RecipeServiceImpIntegrationTest {
     }
 
     @Test
-    @DisplayName("When GetRecipeByTitle With Valid Title Then Returns Recipe")
-    public void WhenGetRecipeByTitleWithValidTitleThenReturnsRecipe() {
+    @DisplayName("When Get Recipe By Id With Valid Id Then Returns Recipe")
+    public void whenGetRecipeByIdWithValidIdThenReturnsRecipe() {
         // Arrange
         String title = "Rocoto relleno";
         String description = "El mejor rocoto relleno de todo chincha";
@@ -52,28 +55,26 @@ public class RecipeServiceImpIntegrationTest {
         recipe.setContent(content);
         //given(postRepository.findByTitle(post.getTitle()))
         //        .willReturn(Optional.of(post));
-        when(recipeRepository.findByTitle(title))
-                .thenReturn(Optional.of(recipe));
-
+        when(recipeRepository.findById(10L)).thenReturn(Optional.of(recipe));
         // Act
-        Recipe foundRecipe = recipeService.getRecipeByTitle(title);
+        Recipe foundRecipe = recipeService.getRecipeById(10L);
 
         // Assert
-        assertThat(foundRecipe.getTitle()).isEqualTo(title);
+        assertThat(foundRecipe.getId()).isEqualTo(10L);
     }
     @Test
-    @DisplayName("When GetRecipeByTitle With Invalid Title Then Returns ResourceNotFoundException")
-    public void WhenGetRecipeByTitleWithInvalidTitleThenReturnsResourceNotFoundException() {
+    @DisplayName("When Get Recipe By Id With Invalid Id Then Returns ResourceNotFoundException")
+    public void whenGetRecipeByIdWithInvalidIdThenReturnsResourceNotFoundException() {
         // Arrange
+        Long id = 15L;
         String title = "Rocoto relleno";
         String template = "Resource %s not found for %s with value %s";
-        when(recipeRepository.findByTitle(title))
-                .thenReturn(Optional.empty());
-        String expectedMessage = String.format(template, "Recipe", "Title", title);
+        when(recipeRepository.findById(id)).thenReturn(Optional.empty());
+        String expectedMessage = String.format(template, "Recipe", "Id", id);
 
         // Act
         Throwable exception = catchThrowable(() -> {
-            Recipe foundPost = recipeService.getRecipeByTitle(title);
+            Recipe recipe = recipeService.getRecipeById(id);
         });
 
         // Assert
