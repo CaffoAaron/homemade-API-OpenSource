@@ -2,7 +2,7 @@ package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Step;
 import com.acme.homemade.demo.domain.reposiroty.StepRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
 import com.acme.homemade.demo.domain.service.StepService;
 import com.acme.homemade.demo.service.StepServiceImpl;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
@@ -27,7 +27,7 @@ public class StepServiceImpIntegrationTest {
     private StepRepository stepRepository;
 
     @MockBean
-    private UserNoChefRepository userNoChefRepository;
+    private RecipeRepository recipeRepository;
 
     @Autowired
     private StepService stepService;
