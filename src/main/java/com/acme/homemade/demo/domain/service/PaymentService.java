@@ -1,5 +1,8 @@
 package com.acme.homemade.demo.domain.service;
 
+import com.acme.homemade.demo.domain.model.Payment;
+import org.springframework.http.ResponseEntity;
+
 public interface PaymentService {
     Payment getPaymentById (Long paymentId);
 
@@ -13,5 +16,5 @@ public interface PaymentService {
 
     Payment updatePayment(Long userId, Long paymentId ,Payment payment);
 
-    ResponseEntity<?>  deletePayment (Long userId, Long paymentId);
+    ResponseEntity<?> deletePayment (Long userId, Long paymentId);
 }
