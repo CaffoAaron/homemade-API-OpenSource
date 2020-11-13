@@ -1,7 +1,7 @@
-Feature: Recipes
+Feature: Search
 
-  Scenario: Counting recipes
-    Given I'm on index page
-    When I write <Text> to search
-    When I click search
-    Then I should have <Amount of results> recipes
+  Scenario: Search recipes
+    Given the user is on the index page
+    When the user enters recipes in the search bar
+    And the user clicks the search button
+    Then the recipes page appears
