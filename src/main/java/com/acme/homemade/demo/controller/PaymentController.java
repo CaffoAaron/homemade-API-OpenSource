@@ -10,5 +10,5 @@ public class PaymentController {
     private ModelMapper mapper;
 
     @Autowired
-    private PaymentService paymentService;
+    private PaymentController paymentController;
 }
