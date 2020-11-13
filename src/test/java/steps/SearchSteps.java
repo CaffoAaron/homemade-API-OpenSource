@@ -15,7 +15,7 @@ public class SearchSteps {
     public void theUserIsInIndexPage(){
         System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
         driver = new FirefoxDriver();
-        driver.navigate().to("https://homemadegg.herokuapp.com/");
+        driver.navigate().to("");
     }
 
     @When("the user enters recipes in the search bar")
