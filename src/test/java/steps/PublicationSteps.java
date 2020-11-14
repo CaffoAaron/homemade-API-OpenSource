@@ -9,7 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SearchSteps {
+public class PublicationSteps {
     WebDriver driver;
     @Given("the user is in the index page")
     public void theUserIsInIndexPage(){
@@ -18,17 +18,13 @@ public class SearchSteps {
         driver.navigate().to("https://homemadegg.herokuapp.com/");
     }
 
-    @When("the user enters recipes in the search bar")
-    public void userEnterRecipesInSearchBar(){
-        driver.findElement(By.id("search_query_top")).sendKeys("recipes");
-    }
-    @When("the user clicks the search button")
-    public void userClicksSearchButton(){
-        driver.findElement(By.name("submit_search")).click();
+    @When("the user enters notifications in the notification icon")
+    public void userEnterNotificationsInTheNotificationsIcon(){
+        driver.findElement(By.id("notification_query_top")).sendKeys("notifications");
     }
 
-    @Then("the results with recipes appear")
-    public void recipesPage(){
-        Assert.assertEquals(driver.findElement(By.className("")).getText(), "\"RECIPES\"");
+    @Then("the results with publications appear")
+    public void TheResultsWithPublicationsAppear(){
+        Assert.assertEquals(driver.findElement(By.className("")).getText(), "\"PUBLICATIONS\"");
     }
 }
