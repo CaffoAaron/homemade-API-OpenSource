@@ -1,6 +1,7 @@
 package steps;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,12 +18,14 @@ public class UserChefViewProfileSteps {
         driver = new FirefoxDriver();
         driver.navigate().to("https://homemadegg.herokuapp.com/");
     }
-
+    @Test
     @When("the chef enters user profile")
     public void chefEntersUserProfile(){
+
         driver.findElement(By.id("profile_query")).sendKeys("profile");
     }
 
+    @Test
     @Then("the user profile shows up")
     public void userProfileShowsUp(){
         //Assert.assertEquals(driver.findElement(By.className("")).getText(), "\"PUBLICATIONS\"");

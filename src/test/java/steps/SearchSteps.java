@@ -27,15 +27,18 @@ public class SearchSteps {
         driver.navigate().to("https://homemadegg.herokuapp.com/");
     }
 
+    @Test
     @When("the user enters recipes in the search bar")
     public void userEnterRecipesInSearchBar(){
         driver.findElement(By.id("search_query_top")).sendKeys("recipes");
     }
+
+    @Test
     @When("the user clicks the search button")
     public void userClicksSearchButton(){
         driver.findElement(By.name("submit_search")).click();
     }
-
+    @Test
     @Then("the results with recipes appear")
     public void recipesPage(){
         String title = driver.findElement(By.className("Nombre")).getText();
