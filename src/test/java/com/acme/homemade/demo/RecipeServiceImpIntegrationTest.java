@@ -1,8 +1,8 @@
 package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Recipe;
-import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserChefRepository;
+import com.acme.homemade.demo.domain.repository.RecipeRepository;
+import com.acme.homemade.demo.domain.repository.UserChefRepository;
 import com.acme.homemade.demo.domain.service.RecipeService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import com.acme.homemade.demo.service.RecipeServiceImpl;

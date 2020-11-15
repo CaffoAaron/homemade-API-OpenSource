@@ -2,8 +2,8 @@ package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Chat;
 import com.acme.homemade.demo.domain.model.User;
-import com.acme.homemade.demo.domain.reposiroty.ChatRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserRepository;
+import com.acme.homemade.demo.domain.repository.ChatRepository;
+import com.acme.homemade.demo.domain.repository.UserRepository;
 import com.acme.homemade.demo.domain.service.ChatService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

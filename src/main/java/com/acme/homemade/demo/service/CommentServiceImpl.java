@@ -3,9 +3,9 @@ package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Comment;
 import com.acme.homemade.demo.domain.model.UserNoChef;
-import com.acme.homemade.demo.domain.reposiroty.CommentRepository;
-import com.acme.homemade.demo.domain.reposiroty.PublicationRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.repository.CommentRepository;
+import com.acme.homemade.demo.domain.repository.PublicationRepository;
+import com.acme.homemade.demo.domain.repository.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.CommentService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

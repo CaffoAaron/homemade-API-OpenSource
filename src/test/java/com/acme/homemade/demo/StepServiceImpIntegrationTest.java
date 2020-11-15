@@ -1,8 +1,8 @@
 package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Step;
-import com.acme.homemade.demo.domain.reposiroty.StepRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.repository.StepRepository;
+import com.acme.homemade.demo.domain.repository.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.StepService;
 import com.acme.homemade.demo.service.StepServiceImpl;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;

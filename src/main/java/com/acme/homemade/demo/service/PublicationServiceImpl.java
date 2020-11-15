@@ -1,12 +1,10 @@
 package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.Publication;
-import com.acme.homemade.demo.domain.model.UserNoChef;
-import com.acme.homemade.demo.domain.reposiroty.PublicationRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.repository.PublicationRepository;
+import com.acme.homemade.demo.domain.repository.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.PublicationService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

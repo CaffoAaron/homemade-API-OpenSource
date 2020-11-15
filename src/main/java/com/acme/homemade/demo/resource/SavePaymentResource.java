@@ -2,28 +2,18 @@ package com.acme.homemade.demo.resource;
 
 import java.util.Date;
 
-public class PaymentResource {
-    private Long id;
+public class SavePaymentResource {
     private Integer cardNumber;
     private String cardName;
     private String paymentDetail;
     private Date dateTime;
     private Float total;
 
-    public Long getId() {
-        return id;
-    }
-
-    public PaymentResource setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
     public Integer getCardNumber() {
         return cardNumber;
     }
 
-    public PaymentResource setCardNumber(Integer cardNumber) {
+    public SavePaymentResource setCardNumber(Integer cardNumber) {
         this.cardNumber = cardNumber;
         return this;
     }
@@ -32,7 +22,7 @@ public class PaymentResource {
         return paymentDetail;
     }
 
-    public PaymentResource setPaymentDetail(String paymentDetail) {
+    public SavePaymentResource setPaymentDetail(String paymentDetail) {
         this.paymentDetail = paymentDetail;
         return this;
     }
@@ -41,7 +31,7 @@ public class PaymentResource {
         return dateTime;
     }
 
-    public PaymentResource setDateTime(Date dateTime) {
+    public SavePaymentResource setDateTime(Date dateTime) {
         this.dateTime = dateTime;
         return this;
     }
@@ -50,7 +40,7 @@ public class PaymentResource {
         return total;
     }
 
-    public PaymentResource setTotal(Float total) {
+    public SavePaymentResource setTotal(Float total) {
         this.total = total;
         return this;
     }
@@ -58,7 +48,7 @@ public class PaymentResource {
         return cardName;
     }
 
-    public PaymentResource setCardName(String cardName) {
+    public SavePaymentResource setCardName(String cardName) {
         this.cardName = cardName;
         return this;
     }
