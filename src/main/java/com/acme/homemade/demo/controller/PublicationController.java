@@ -1,7 +1,6 @@
 package com.acme.homemade.demo.controller;
 
 import com.acme.homemade.demo.domain.model.Publication;
-import com.acme.homemade.demo.domain.reposiroty.CommentRepository;
 import com.acme.homemade.demo.domain.service.PublicationService;
 import com.acme.homemade.demo.resource.PublicationResource;
 import com.acme.homemade.demo.resource.SavePublicationResource;

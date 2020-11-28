@@ -1,10 +1,9 @@
 package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Menu;
-import com.acme.homemade.demo.domain.model.Publication;
-import com.acme.homemade.demo.domain.reposiroty.MenuRepository;
-import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.repository.MenuRepository;
+import com.acme.homemade.demo.domain.repository.RecipeRepository;
+import com.acme.homemade.demo.domain.repository.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.MenuService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import com.acme.homemade.demo.service.MenuServiceImpl;

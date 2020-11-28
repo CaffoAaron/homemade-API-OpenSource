@@ -1,5 +1,5 @@
 //Llamar al dominio de repositorio
-package com.acme.homemade.demo.domain.reposiroty;
+package com.acme.homemade.demo.domain.repository;
 
 //Importar al modelo de dominio de UserChef
 import com.acme.homemade.demo.domain.model.UserChef;

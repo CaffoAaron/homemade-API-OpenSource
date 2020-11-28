@@ -1,12 +1,11 @@
 package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Publication;
-import com.acme.homemade.demo.domain.reposiroty.PublicationRepository;
-import com.acme.homemade.demo.domain.reposiroty.UserNoChefRepository;
+import com.acme.homemade.demo.domain.repository.PublicationRepository;
+import com.acme.homemade.demo.domain.repository.UserNoChefRepository;
 import com.acme.homemade.demo.domain.service.PublicationService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import com.acme.homemade.demo.service.PublicationServiceImpl;
-import org.h2.command.dml.MergeUsing;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

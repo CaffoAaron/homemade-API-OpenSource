@@ -1,4 +1,4 @@
-package com.acme.homemade.demo.domain.reposiroty;
+package com.acme.homemade.demo.domain.repository;
 
 
 import com.acme.homemade.demo.domain.model.Payment;

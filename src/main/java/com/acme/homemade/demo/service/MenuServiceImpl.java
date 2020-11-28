@@ -1,9 +1,8 @@
 package com.acme.homemade.demo.service;
 
 import com.acme.homemade.demo.domain.model.*;
-import com.acme.homemade.demo.domain.reposiroty.*;
+import com.acme.homemade.demo.domain.repository.*;
 import com.acme.homemade.demo.domain.service.MenuService;
-import com.acme.homemade.demo.domain.service.MessageService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

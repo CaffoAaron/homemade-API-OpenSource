@@ -1,5 +1,5 @@
 //Declarar paquete
-package com.acme.homemade.demo.domain.reposiroty;
+package com.acme.homemade.demo.domain.repository;
 
 //Declarar frameworks de spring y el domiminio de modelo de UserNoChef
 import com.acme.homemade.demo.domain.model.UserNoChef;

@@ -1,9 +1,8 @@
 package com.acme.homemade.demo;
 
 import com.acme.homemade.demo.domain.model.Ingredient;
-import com.acme.homemade.demo.domain.model.Recipe;
-import com.acme.homemade.demo.domain.reposiroty.IngredientRepository;
-import com.acme.homemade.demo.domain.reposiroty.RecipeRepository;
+import com.acme.homemade.demo.domain.repository.IngredientRepository;
+import com.acme.homemade.demo.domain.repository.RecipeRepository;
 import com.acme.homemade.demo.domain.service.IngredientService;
 import com.acme.homemade.demo.execption.ResourceNotFoundException;
 import com.acme.homemade.demo.service.IngredientServiceImpl;
@@ -18,8 +17,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
