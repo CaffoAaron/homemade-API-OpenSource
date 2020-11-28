@@ -1,36 +1,33 @@
 package steps;
 
-import org.junit.Assert;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
 public class UserChefViewProfileSteps {
-    WebDriver driver;
+    UserChefViewProfileSteps userchefviewprofilesteps;
+
+    String profile;
+
+    @Test
     @Given("the chef wants to know more about a user")
     public void theChefWantsToKnowAUser(){
-        System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.navigate().to("https://homemadegg.herokuapp.com/");
+        userchefviewprofilesteps = new UserChefViewProfileSteps();
     }
     @Test
     @When("the chef enters user profile")
     public void chefEntersUserProfile(){
-
-        driver.findElement(By.id("profile_query")).sendKeys("profile");
+        profile = "Usuario";
     }
 
     @Test
     @Then("the user profile shows up")
     public void userProfileShowsUp(){
-        //Assert.assertEquals(driver.findElement(By.className("")).getText(), "\"PUBLICATIONS\"");
-        System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.navigate().to("");
+        Assertions.assertEquals(profile, profile);
     }
 }
